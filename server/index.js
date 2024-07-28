@@ -1,3 +1,4 @@
+
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -8,17 +9,15 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-import { postSignup, postLogin } from './controllers/user.js';
+import { postSignup, postLogin } from './controllers/users.js';
+import { postTransaction, getTransactions, deleteTransaction } from "./controllers/transactions.js";
 
-import { postTransaction, getTransactions, deleteTransaction } from "./controllers/transaction.js";
-
-
-// Database connection
+// database connection to mongoDB
 const connectDB = async () =>{
   const conn = await mongoose.connect(process.env.MONGODB_URL)
 
   if (conn) {
-    console.log(`MongoDB connected successfully ✅`);
+    console.log(`Database connected successfully ✅`);
   }
 };
 connectDB();
@@ -26,7 +25,7 @@ connectDB();
 
 app.get('/', (req, res) => {
   res.json({
-    message: `Welcome to my EXPENSE TRACKER API`
+    message: "Hello 🖐, Welcome To EXPENSE TRACKER API!!! 🎉"
   })
 })
 

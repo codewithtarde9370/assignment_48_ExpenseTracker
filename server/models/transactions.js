@@ -1,44 +1,32 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import dotenv from 'dotenv';
-dotenv.config();
 
-const app = express();
-app.use(express.json());
-app.use(cors());
+import { Schema, model } from "mongoose";
 
-import { postSignup, postLogin } from './controllers/user.js';
-
-import { postTransaction, getTransactions, deleteTransaction } from "./controllers/transaction.js";
-
-
-//MongoDB database connection
-const connectDB = async () =>{
-  const conn = await mongoose.connect(process.env.MONGODB_URL)
-
-  if (conn) {
-    console.log(`MongoDB connected successfully ✅`);
+const transactionSchema = new Schema({
+  title: {
+    type: String,
+    required: true,
+  },
+  amount: {
+    type: Number,
+    required: true,
+  },
+  category: {
+    type: String,
+    default: "others",
+  },
+  type: {
+    type: String,
+    enum: ["debit", "credit"],
+  },
+  user:{
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
   }
-};
-connectDB();
+},{
+  timestamps: true,
+});
 
+const Transaction = model("Transaction", transactionSchema);
 
-app.get('/', (req, res) => {
-  res.json({
-    message: `Welcome to Expense Tracker API`
-  })
-})
-
-app.post("/signup", postSignup)
-app.post("/login", postLogin)
-
-app.post("/transaction", postTransaction)
-app.get("/transactions", getTransactions)
-app.delete("/transaction/:id", deleteTransaction)
-
-const PORT = process.env.PORT || 5000;
-
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-})
+export default Transaction;
