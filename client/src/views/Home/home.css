@@ -1,0 +1,70 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .home-greeting {
+    color: navy;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .home-heading {
+    color: navy;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .home-logout {
+    display: block;
+    text-align: center;
+    margin-bottom: 20px;
+    color: navy;
+    cursor: pointer;
+  }
+  
+  .net-transactions-values {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+  }
+  
+  .net-transactions-item {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 150px;
+    text-align: center;
+  }
+  
+  .net-transactions-amount {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .net-transactions-title {
+    color: navy;
+    margin-top: 10px;
+  }
+  
+  .transactions-container {
+    width: 80%;
+    margin: auto;
+  }
+  
+  .add-transaction {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+  }
+  
