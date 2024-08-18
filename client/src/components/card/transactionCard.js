@@ -18,9 +18,7 @@ function TransactionCard({ _id, title, amount, category, type, createdAt, loadTr
         {title}
       </h1>
 
-      <span className="transaction-card-date">
-        {new Date(createdAt).toLocaleString()}
-      </span>
+      
 
       <span className="transaction-card-category">
         {category}
@@ -32,6 +30,9 @@ function TransactionCard({ _id, title, amount, category, type, createdAt, loadTr
         {type === "credit" ? "+": "-"}
         {amount}
       </span>
+      <span className="transaction-card-date">
+          {new Date(createdAt).toLocaleString()}
+        </span>
 
       <button className="transaction-card-delete" onClick={deleteTransaction}>
         Delete

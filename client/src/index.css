@@ -1,4 +1,4 @@
-body {
+/* body {
   background-color: #FF9A8B;
 background-image: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
 min-height: 100vh;
@@ -14,75 +14,4 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f0f0f5; 
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.title {
-  color: navy;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.form {
-  background-color: white;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  width: 300px;
-}
-
-.user-input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid navy;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
-
-.user-input:focus {
-  border-color: #003366; 
-  outline: none;
-  box-shadow: 0 0 5px rgba(0, 51, 102, 0.5);
-}
-
-.btn {
-  background-color: navy;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-}
-
-.btn:hover {
-  background-color: #003366; 
-}
-
-.btn:active {
-  background-color: #001f4d; 
-}
-
-.link {
-  display: block;
-  text-align: center;
-  margin-top: 10px;
-  color: navy;
-  text-decoration: none;
-}
-
-.link:hover {
-  text-decoration: underline;
-}
-
+ */

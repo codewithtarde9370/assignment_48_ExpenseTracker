@@ -1,67 +1,78 @@
-import React, { useState } from 'react'
-import './login.css'
-import './../../index.css'
-import toast, { Toaster } from 'react-hot-toast'
-import { Link } from 'react-router-dom'
-import axios from 'axios'
+import React, { useState } from 'react';
+import './login.css';
+import './../../index.css';
+import toast, { Toaster } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Login() {
-  
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
-  const loginNow = async() => {
-    const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
-      email: email,
-      password: password
-    })
-    if(response.data.success){
-      toast.success(response.data.message)
+  const loginNow = async (event) => {
+    event.preventDefault();
 
-      localStorage.setItem('currentUser', JSON.stringify(response.data.data))
-
-     toast.loading('Redirecting to dashboard...')
-
-     setTimeout(()=>{
-       window.location.href = '/'
-     }, 3000)
-    }else{
-      toast.error(response.data.message)
+    if (!email || !password) {
+      toast.error('Please fill in all fields');
+      return;
     }
-  }
 
-  
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_API_URL}/login`, {
+        email,
+        password
+      });
+
+      if (response.data.success) {
+        toast.success(response.data.message);
+        localStorage.setItem('currentUser', JSON.stringify(response.data.data));
+
+        toast.loading('Redirecting to dashboard...');
+
+        setTimeout(() => {
+          window.location.href = '/';
+        }, 3000);
+      } else {
+        toast.error(response.data.message);
+      }
+    } catch (error) {
+      console.error('Login failed:', error);
+      toast.error('Login failed. Please try again.');
+    }
+  };
+
   return (
-    <div><h1 className='title'>Login</h1>
-     
-<form className='form'>
+    <div>
+      <h1 className='title'>Login</h1>
 
-<input
-type='email'
-placeholder='Email'
-className='user-input'
-value={email}
-onChange={(e) => setEmail(e.target.value)}
-/>
+      <form className='form' onSubmit={loginNow}>
+        <input
+          type='email'
+          id='email'
+          name='email'
+          placeholder='Email'
+          className='user-input'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-<input 
-type='password' 
-required 
-placeholder='Password' 
-className='user-input'
-value={password}
-onChange={(e) => setPassword(e.target.value)}
-/> 
+        <input
+          type='password'
+          id='password'
+          name='password'
+          placeholder='Password'
+          className='user-input'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-<button className='btn' onClick={loginNow}>Login</button>
+        <button className='btn' type='submit'>Login</button>
+      </form>
 
-</form>
-
-<Link to='/signup' className='link'>Already have an account? signup</Link>
-<Toaster/>
-
-</div>
-  )
+      <Link to='/signup' className='link'>Don't have an account? Sign up</Link>
+      <Toaster />
+    </div>
+  );
 }
 
-export default Login
+export default Login;

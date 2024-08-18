@@ -9,8 +9,8 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-import { postSignup, postLogin } from './controllers/users.js';
-import { postTransaction, getTransactions, deleteTransaction } from "./controllers/transactions.js";
+import { postSignup, postLogin } from './controllers/User.js';
+import { postTransaction, getTransactions, deleteTransaction } from "./controllers/Transaction.js";
 
 // database connection to mongoDB
 const connectDB = async () =>{
