@@ -41,7 +41,6 @@ Transactions
 - **Delete Transaction:** Users can delete any previously added transaction.
 
 ### Home Page:
-![]
 - The app displays a list of all transactions on the home page, fetched from the backend using Axios.
 Toast Notifications: React Hot Toast provides instant feedback for user actions like successful login, transaction addition, or deletion.
 Logout: Users can securely log out from their session.
