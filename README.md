@@ -1,6 +1,6 @@
 # Expense Tracker Website
 
-This is a full-stack expense tracker web application built using the *MERN stack* (MongoDB, Express, React, and Node.js). The app allows users to track their daily expenses with functionalities for signing up, logging in, adding and deleting transactions, and viewing them on the home page. The project integrates various libraries on both the client and server sides to ensure a smooth user experience.
+This is a full-stack expense tracker web application built using the **MERN stack** (MongoDB, Express, React, and Node.js). The app allows users to track their daily expenses with functionalities for signing up, logging in, adding and deleting transactions, and viewing them on the home page. The project integrates various libraries on both the client and server sides to ensure a smooth user experience.
 
 ## Features
 
